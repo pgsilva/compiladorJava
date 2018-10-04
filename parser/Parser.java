@@ -42,12 +42,12 @@ public class Parser {
 	}
 	
 	Stmt block() throws IOException {
-		match('(');
+		match(')');
 		Env savedEnv = top;
 		top = new Env(top);
 		decls();
 		Stmt s = stmts();
-		match('}');
+		match(')');
 		top = savedEnv;
 		return s;
 	}
